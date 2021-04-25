@@ -544,21 +544,21 @@ public class ModelServiceImpl implements ModelService {
         double[] p = new double[rangeT];
         double[] i = new double[rangeT];
         double[] d = new double[rangeT];
-        e1[7] = R;
-        u1[7] = kp * (e1[7]) + ki * e1[7] + kd * (e1[7]);
-        p[7] = kp * (e1[7]);
-        i[7] = ki * e1[7];
-        d[7] = kd * (e1[7]);
-        y0[7] = (k1 * T * T * u1[7]) / (1 + a1 * T);
+        e1[0] = R;
+        u1[0] = kp * (e1[0]) + ki * e1[0] + kd * (e1[0]);
+        p[0] = kp * (e1[0]);
+        i[0] = ki * e1[0];
+        d[0] = kd * (e1[0]);
+        y0[0] = (k1 * T * T * u1[0]) / (1 + a1 * T);
 
-        e1[8] = R - y0[7];
-        u1[8] = u1[7] + kp * (e1[8] - e1[7]) + ki * e1[8] + kd * (e1[8] - 2 * e1[7]);
-        p[8] = kp * (e1[8] - e1[7]);
-        i[8] = ki * e1[8];
-        d[8] = kd * (e1[8] - 2 * e1[7]);
-        y0[8] = ((2 + a1 * T) * y0[7] + k1 * T * T * (u1[8] - u1[7])) / (1 + a1 * T);
+        e1[1] = R - y0[0];
+        u1[1] = u1[0] + kp * (e1[1] - e1[0]) + ki * e1[1] + kd * (e1[1] - 2 * e1[0]);
+        p[1] = kp * (e1[1] - e1[0]);
+        i[1] = ki * e1[1];
+        d[1] = kd * (e1[1] - 2 * e1[0]);
+        y0[1] = ((2 + a1 * T) * y0[0] + k1 * T * T * (u1[1] - u1[0])) / (1 + a1 * T);
 
-        for (int k = 9; k < rangeT; k++)
+        for (int k = 2; k < rangeT; k++)
         {
             e1[k] = R - y0[k - 1];
             u1[k] = (u1[k - 1] + kp * (e1[k] - e1[k - 1]) + ki * e1[k] + kd * (e1[k] - 2 * e1[k - 1] + e1[k - 2]));
